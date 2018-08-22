@@ -7,7 +7,7 @@ Solidity를 사용해서 만들고 해당 언어의 특징과 다른 언어와 �
 - 프로그래밍 언어 사용경험(C, Python, Java, Javascript, Ruby ...)
 
 ## 목차
-- Dapp 개발 전체 과정
+- [Dapp 개발 학습 과정](https://github.com/parti-xyz/dapp101/blob/master/00EntireProcess.md)
 - 이더리움 기초
 - 트러플(Truffle)과 테스트 네트워크(Ganache) 설치
 - 트러플 프로젝트 시작
