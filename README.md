@@ -11,7 +11,7 @@ Solidity를 사용해서 만들고 해당 언어의 특징과 다른 언어와 �
 - [이더리움 기초](https://github.com/parti-xyz/dapp101/blob/master/01BasicOfEthereum.md)
 - [트러플(Truffle)과 테스트 네트워크(Ganache) 설치](https://github.com/parti-xyz/dapp101/blob/master/02InstallTruffleTestNetwork.md)
 - [트러플 프로젝트 시작](https://github.com/parti-xyz/dapp101/blob/master/03InitTruffleProject.md)
-- 컨트랙트 작성
+- [컨트랙트 계속 작성](https://github.com/parti-xyz/dapp101/blob/master/04WriteContract.md)
 - Web3를 이용해서 Front-end 작성하기
 - 후보자 리스트 Front-End에 출력하기
 - 유권자 등록하기
