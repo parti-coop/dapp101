@@ -3,62 +3,43 @@ App = {
   contracts: {},
 
   init: function() {
-    // Load pets.
-    $.getJSON('../pets.json', function(data) {
-      var petsRow = $('#petsRow');
-      var petTemplate = $('#petTemplate');
-
-      for (i = 0; i < data.length; i ++) {
-        petTemplate.find('.panel-title').text(data[i].name);
-        petTemplate.find('img').attr('src', data[i].picture);
-        petTemplate.find('.pet-breed').text(data[i].breed);
-        petTemplate.find('.pet-age').text(data[i].age);
-        petTemplate.find('.pet-location').text(data[i].location);
-        petTemplate.find('.btn-adopt').attr('data-id', data[i].id);
-
-        petsRow.append(petTemplate.html());
-      }
-    });
 
     return App.initWeb3();
   },
-
+  //접속할 이더리움의 노드를 설정하고 해당 노드의 첫 번째 어카운트 정보를 가져옵니다.
   initWeb3: function() {
-    /*
-     * Replace me...
-     */
-
+    App.web3Provider = new Web3.providers.HttpProvider('http://localhost:7545');  
+    web3 = new Web3(App.web3Provider);
+    App.account = web3.eth.accounts[0];
     return App.initContract();
   },
 
-  initContract: function() {
-    /*
-     * Replace me...
-     */
-
-    return App.bindEvents();
+  initContract: function(){
+    $.getJSON('Voting.json', function(voting){
+      App.contracts.Voting = TruffleContract(voting); 
+      App.contracts.Voting.setProvider(App.web3Provider);  
+      return App.render();
+    });
   },
 
-  bindEvents: function() {
-    $(document).on('click', '.btn-adopt', App.handleAdopt);
-  },
+  render: function(){
+    var loader = $('.loader');
+    var contents = $('.contents');
+    var votingInstance;
 
-  markAdopted: function(adopters, account) {
-    /*
-     * Replace me...
-     */
-  },
+    loader.show();
+    contents.hide();
 
-  handleAdopt: function(event) {
-    event.preventDefault();
-
-    var petId = parseInt($(event.target).data('id'));
-
-    /*
-     * Replace me...
-     */
+    App.contracts.Voting.deployed().then(function(instance){
+      votingInstance = instance;
+      votingInstance.getOwner.call().then(function(owner){
+        contents.html("Contract Owner is: " + owner);
+      });
+    }).then(function(){
+      loader.hide();
+      contents.show();
+    });
   }
-
 };
 
 $(function() {
