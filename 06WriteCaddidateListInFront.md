@@ -27,7 +27,7 @@
 후보자 리스트에 붙일 table태그를 생성하고 컨트랙트 주소를 출력할 p태그를 만듭니다.
 
 ## Voting.sol 수정
-후보자 리스트를 출력하기 위해서는 현재 몇명 등록되어 있는지 candidateList의 크기 정보가 필요합니다. ㅎgetCandidateListLength() 함수를 추가합니다.
+후보자 리스트를 출력하기 위해서는 현재 몇명 등록되어 있는지 candidateList의 크기 정보가 필요합니다. getCandidateListLength() 함수를 추가합니다.
 
 ```
 function getCandidateListLength() public view returns (uint){
@@ -37,7 +37,7 @@ function getCandidateListLength() public view returns (uint){
  
 Voting.sol을 수정했으면 컴파일, 배포를 실행합니다.
 
-##app.js 수정
+## app.js 수정
 
 render함수를 수정합니다.
 
