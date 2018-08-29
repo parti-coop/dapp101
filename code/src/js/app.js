@@ -51,6 +51,19 @@ App = {
           candidateList.append(candidateTemp);
         });
       }
+      return votingInstance.getVoterCount();
+    }).then(function(vCount){
+      var voterCount = vCount.toNumber();
+      var voterList = $('.voterList');
+
+      for(var i=0; i < voterCount; i++){
+        votingInstance.getVoter(i).then(function(voter){
+          var address = voter[0];
+          var right = voter[1];
+          var voterTemp = "<tr><th>" + address + "</th><td>" + right + "</td></tr>"; 
+          voterList.append(voterTemp);
+        });
+      }
 
     }).then(function(){
       loader.hide();

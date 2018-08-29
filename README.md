@@ -14,7 +14,7 @@ Solidity를 사용해서 만들고 해당 언어의 특징과 다른 언어와 �
 - [컨트랙트 계속 작성](https://github.com/parti-xyz/dapp101/blob/master/04WriteContract.md)
 - [Web3를 이용해서 Front-end 작성하기](https://github.com/parti-xyz/dapp101/blob/master/05WriteFrontend.md)
 - [후보자 리스트 Front-End에 출력하기](https://github.com/parti-xyz/dapp101/blob/master/06WriteCaddidateListInFront.md)
-- 유권자 등록하기
+- [유권자 등록하기](https://github.com/parti-xyz/dapp101/blob/master/07AddingVoter.md)
 - 투표 구현하기
 - 등록된 유권자만 투표하기
 - 투표한 결과, Front에 반영하기

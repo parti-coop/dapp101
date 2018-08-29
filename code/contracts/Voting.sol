@@ -10,6 +10,14 @@ contract Voting {
 
   Candidate[] private candidateList;
 
+  struct Voter{
+    address voterAddress;
+    bool right;
+  }
+
+  mapping (uint => Voter) private voterList;
+  uint8 private voterCount;
+
   constructor() public{
     owner = msg.sender;
   }
@@ -28,5 +36,18 @@ contract Voting {
 
   function getCandidateListLength() public view returns (uint){
     return candidateList.length;
+  }
+
+  function addVoter (address _voter) public {
+    voterList[voterCount] = Voter(_voter, true);
+    voterCount++;
+  }
+
+  function getVoter(uint8 _id) public view returns(address, bool){
+    return (voterList[_id].voterAddress, voterList[_id].right);
+  }
+
+  function getVoterCount() public view returns (uint8){
+    return voterCount;
   }
 }
