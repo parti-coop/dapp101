@@ -25,4 +25,8 @@ contract Voting {
   function getCandidate(uint8 _id) public view returns(string, uint8){
     return (candidateList[_id].name, candidateList[_id].voteCount);
   }
+
+  function getCandidateListLength() public view returns (uint){
+    return candidateList.length;
+  }
 }

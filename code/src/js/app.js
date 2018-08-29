@@ -25,6 +25,8 @@ App = {
   render: function(){
     var loader = $('.loader');
     var contents = $('.contents');
+    var ownerTag = $('.owner');
+
     var votingInstance;
 
     loader.show();
@@ -33,8 +35,23 @@ App = {
     App.contracts.Voting.deployed().then(function(instance){
       votingInstance = instance;
       votingInstance.getOwner.call().then(function(owner){
-        contents.html("Contract Owner is: " + owner);
+        ownerTag.html("Contract Owner is: " + owner);
       });
+
+      return votingInstance.getCandidateListLength.call();
+    }).then(function(count){
+      var candidateCount = count.toNumber();
+      var candidateList = $('.candidateList');
+
+      for(var i=0; i < candidateCount; i++){
+        votingInstance.getCandidate(i).then(function(candidate){
+          var name = candidate[0];
+          var voteCount = candidate[1];
+          var candidateTemp = "<tr><th>" + name + "</th><td>" + voteCount + "</td></tr>"; 
+          candidateList.append(candidateTemp);
+        });
+      }
+
     }).then(function(){
       loader.hide();
       contents.show();
