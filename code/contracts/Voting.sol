@@ -53,6 +53,25 @@ contract Voting {
 
   function vote(uint8 _id) public {
     require( _id >= 0 && _id < candidateList.length);
+    require(validateVoter(msg.sender));
     candidateList[_id].voteCount++;
+    changeright(msg.sender);
+  }
+
+  function validateVoter(address _sender) private view returns (bool){
+    for(uint8 i = 0; i < voterCount; i++){
+      if(voterList[i].voterAddress == _sender){
+        return voterList[i].right;
+      }
+    }
+    return false;
+  }
+
+  function changeright(address _sender) private {
+    for(uint8 i = 0; i < voterCount; i++){
+      if(voterList[i].voterAddress == _sender){
+        voterList[i].right = false;
+      }
+    }
   }
 }

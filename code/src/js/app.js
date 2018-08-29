@@ -38,6 +38,8 @@ App = {
         ownerTag.html("Contract Owner is: " + owner);
       });
 
+      $('.yourAccount').html("Your Account is: " + App.account);
+
       return votingInstance.getCandidateListLength.call();
     }).then(function(count){
       var candidateCount = count.toNumber();
