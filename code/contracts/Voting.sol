@@ -50,4 +50,9 @@ contract Voting {
   function getVoterCount() public view returns (uint8){
     return voterCount;
   }
+
+  function vote(uint8 _id) public {
+    require( _id >= 0 && _id < candidateList.length);
+    candidateList[_id].voteCount++;
+  }
 }

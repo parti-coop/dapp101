@@ -42,19 +42,30 @@ App = {
     }).then(function(count){
       var candidateCount = count.toNumber();
       var candidateList = $('.candidateList');
+      var candidateSelect = $('#candidateSelect');
 
-      for(var i=0; i < candidateCount; i++){
+      candidateList.empty();
+      candidateSelect.empty();
+
+
+      for(let i=0; i < candidateCount; i++){
+
         votingInstance.getCandidate(i).then(function(candidate){
           var name = candidate[0];
           var voteCount = candidate[1];
           var candidateTemp = "<tr><th>" + name + "</th><td>" + voteCount + "</td></tr>"; 
+          var candidateOpt = "<option value='" + i +"'>" + name + "</option>";
           candidateList.append(candidateTemp);
+          candidateSelect.append(candidateOpt);
         });
       }
+
+
       return votingInstance.getVoterCount();
     }).then(function(vCount){
       var voterCount = vCount.toNumber();
       var voterList = $('.voterList');
+      voterList.empty();
 
       for(var i=0; i < voterCount; i++){
         votingInstance.getVoter(i).then(function(voter){
@@ -68,6 +79,20 @@ App = {
     }).then(function(){
       loader.hide();
       contents.show();
+    });
+  },
+  vote: function(){
+    var votingInstance;
+    var candidateId = $('#candidateSelect').val();
+    App.contracts.Voting.deployed().then(function(instance){
+      votingInstance = instance;
+      return votingInstance.vote(candidateId, {from: App.account});
+    }).then(function(receipt){
+      $('.loader').show();
+      $('.contents').hide();
+      $('from').hide();
+    }).catch(function(err){
+      alert(err);
     });
   }
 };

@@ -43,6 +43,15 @@
             <tbody class="voterList"></tbody> 
           </table>
         </div>
+
+        <form onsubmit="App.vote(); return false;"> 
+          <div class="form-group"> 
+            <label for="candidateSelect">Select Candidate</label> 
+            <select class="from-control" id="candidateSelect"></select> 
+          </div> 
+          <button type="submit" class="btn btn-primary">Vote</button>
+        </form>
+
       </div> 
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
