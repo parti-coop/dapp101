@@ -51,7 +51,7 @@ Error: VM Exception while processing transaction: revert
 
 해보시면서 발견한 오타, 건의사항은 폴리퀘로 주셔도 좋고 이슈로 남겨주셔도 좋습니다.
 
-** by 3D Activist 켄타 **
+**by 3D Activist 켄타**
 - 블록체인과 관련된 정보와 이야기를 아래 빠띠에서 나누고 있습니다. 블록체인 관련해서 이야기나누고 싶은신 분은 언제나 환영입니다. :)
 
 [블록체인 빠띠 둘러보기](https://parti.xyz/p/blockchain)
