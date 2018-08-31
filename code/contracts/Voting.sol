@@ -28,7 +28,7 @@ contract Voting {
     return owner;
   }
 
-  function addCandidate (string name) public{
+  function addCandidate (string name) public onlyOwner {
     candidateList.push(Candidate(name,0));
   }
 
@@ -40,7 +40,7 @@ contract Voting {
     return candidateList.length;
   }
 
-  function addVoter (address _voter) public {
+  function addVoter (address _voter) public onlyOwner{
     voterList[voterCount] = Voter(_voter, true);
     voterCount++;
   }
@@ -76,5 +76,10 @@ contract Voting {
         voterList[i].right = false;
       }
     }
+  }
+
+  modifier onlyOwner(){
+    require(msg.sender == owner);
+    _;
   }
 }

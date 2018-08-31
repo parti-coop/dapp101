@@ -18,4 +18,4 @@ Solidity를 사용해서 만들고 해당 언어의 특징과 다른 언어와 �
 - [투표 구현하기](https://github.com/parti-xyz/dapp101/blob/master/08ImplementVoting.md)
 - [등록된 유권자만 투표하기](https://github.com/parti-xyz/dapp101/blob/master/09OnlyVoting.md)
 - [투표한 결과, Front에 반영하기 - Event 사용하기](https://github.com/parti-xyz/dapp101/blob/master/10ReturnToFront.md)
-- 컨트랙트 주인만 유권자와 후보자 등록하기
+- [컨트랙트 주인만 유권자와 후보자 등록하기](https://github.com/parti-xyz/dapp101/blob/master/11OnlyVote.md)
