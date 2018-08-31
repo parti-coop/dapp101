@@ -22,6 +22,8 @@ contract Voting {
     owner = msg.sender;
   }
 
+  event VotedEvent(uint8 _id, address _voter);
+
   function getOwner() public view returns (address){
     return owner;
   }
@@ -56,6 +58,7 @@ contract Voting {
     require(validateVoter(msg.sender));
     candidateList[_id].voteCount++;
     changeright(msg.sender);
+    emit VotedEvent(_id, msg.sender);
   }
 
   function validateVoter(address _sender) private view returns (bool){

@@ -18,7 +18,20 @@ App = {
     $.getJSON('Voting.json', function(voting){
       App.contracts.Voting = TruffleContract(voting); 
       App.contracts.Voting.setProvider(App.web3Provider);  
+      App.watchEvent();
       return App.render();
+    });
+  },
+
+  watchEvent: function(){
+    App.contracts.Voting.deployed().then(function(instance){
+      instance.VotedEvent().watch(function(err, event){
+        console.log('Vote Event Triggerd!', event);
+        if(err){
+          alert(err);
+        }
+        App.render();
+      });
     });
   },
 
