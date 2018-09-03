@@ -15,7 +15,7 @@ modifier onlyOwner(){
 }
 ```
 
-require문 아래에 있는 **_;**은 require문을 통과하면 이후 명령어를 실행시킵니다.
+require문 아래에 있는 _;은 require문을 통과하면 이후 명령어를 실행시킵니다.
 
 modifier가 정의를 했으면 onlyOwner가 필요한 함수에 추가합니다. addCandidate, addVoter에 추가하겠습니다.
 
