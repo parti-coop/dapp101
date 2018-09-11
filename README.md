@@ -19,3 +19,10 @@ Solidity를 사용해서 만들고 해당 언어의 특징과 다른 언어와 �
 - [등록된 유권자만 투표하기](https://github.com/parti-xyz/dapp101/blob/master/09OnlyVoting.md)
 - [투표한 결과, Front에 반영하기 - Event 사용하기](https://github.com/parti-xyz/dapp101/blob/master/10ReturnToFront.md)
 - [컨트랙트 주인만 유권자와 후보자 등록하기](https://github.com/parti-xyz/dapp101/blob/master/11OnlyVote.md)
+
+
+##### by 3D(Decentralization, Democracy, Digital) 활동가 켄타 #####
+블록체인과 관련된 정보와 이야기를 아래 공간에서 나누고 있습니다.
+블록체인 관련해서 이야기나누고 싶은신 분은 언제나 환영입니다.
+
+[블록체인 빠띠 둘러보기](https://parti.xyz/p/blockchain)
